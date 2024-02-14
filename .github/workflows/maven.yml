@@ -27,9 +27,5 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Setup PostgreSQL
-      uses: tj-actions/install-postgresql@v3
-      with:
-        postgresql-version: 16
     - name: Build with Maven
       run: mvn -B package --file pom.xml
