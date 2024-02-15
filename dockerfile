@@ -3,4 +3,4 @@ WORKDIR /home
 COPY . .
 EXPOSE 8080
 RUN mvn package
-RUN java -jar target\db-0.0.1-SNAPSHOT.war
+CMD ["java", "-jar","target/db-0.0.1-SNAPSHOT.war"]
