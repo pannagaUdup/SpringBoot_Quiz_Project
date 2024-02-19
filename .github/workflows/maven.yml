@@ -39,7 +39,7 @@ jobs:
       uses: ncipollo/release-action@v1.10.0
       with:
         artifacts: "target/*.war"
-        token: ${{ secrets.GITHUB_TOKEN}}
+        token: ${{ secrets.GIT_TOKEN}}
         tag: v1.0.${{github.run_number}}
   image_scan:
     name: Build and Run Image Scan
