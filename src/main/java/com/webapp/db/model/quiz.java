@@ -1,4 +1,4 @@
-package com.webapp.db;
+package com.webapp.db.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
