@@ -28,6 +28,19 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Archive WAR file
+      uses: actions/upload-artifact@v2
+      with: 
+        name: my-artifact
+        path: target/*.war       
+    - name: Rename files
+      run: mv target/*.war target\db--v1.0.${{github.run_number}}-SNAPSHOT.war
+    - name: Push to release
+      uses: ncipollo/release-action@v1.10.0
+      with:
+        artifacts: "target/*.war"
+        token: ${{ secrets.GIT_TOKEN}}
+        tag: v1.0.${{github.run_number}}
   image_scan:
     name: Build and Run Image Scan
     runs-on: ubuntu-latest
